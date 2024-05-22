@@ -1,6 +1,6 @@
 >📋  A template README.md for code accompanying a Machine Learning paper
 
-# My Paper Title
+# NONOS: Neural Oscillation and Non-Oscillation Separator for Securing Temporal Resolution
 
 This repository is the official implementation of [NONOS: Neural Oscillation and Non-Oscillation Separator for Securing Temporal Resolution]. 
 
@@ -35,14 +35,6 @@ python eval.py --model-file mymodel.pth --input-data <path_to_data>
 ```
 
 >📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
-
-## Pre-trained Models
-
-You can download pretrained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
-
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
 
 ## Results
 
