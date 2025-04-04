@@ -42,7 +42,7 @@ python NONOS_train.py --save_path <path_to_save> --fname_osc <path_to_osc> --fna
 
 ## Evaluation
 
-To evaluate my model on ImageNet, run:
+To evaluate my model on a specific data, run:
 
 ```eval
 python NONOS_eval.py --model_file mymodel.checkpoint --fname_osc <path_to_osc> --fname_osc <path_to_nosc> --gpus 4
