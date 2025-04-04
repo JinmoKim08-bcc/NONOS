@@ -2,7 +2,7 @@
 
 This repository is the official implementation of [NONOS: Neural Oscillation and Non-Oscillation Separator for Securing Temporal Resolution]. 
 
-![Image](https://github.com/user-attachments/assets/04c1d493-edc9-44f9-bb99-da6718e8cdc5)
+![Image](https://github.com/user-attachments/assets/22a9064e-cab9-4f11-9fae-6231f705efff)
 
 ## Requirements
 
