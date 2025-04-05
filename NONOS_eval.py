@@ -10,7 +10,7 @@ from tqdm import tqdm
 from scipy.optimize import curve_fit
 import sklearn.model_selection as ms
 import numpy as np
-from NONOS import *
+from models import *
 from utils import *
 
 def main():
