@@ -109,10 +109,7 @@ def train(gpu, args):
 
     ############################################################
     # Model saved location
-    if args.mode == 0:
-        fname = 'result'
-    elif args.mode == 1:
-        fname = 'result'
+    fname = 'results'
     model_checkpoint_path = fpath + "/"
     model_checkpoint_model = model_checkpoint_path + fname + '_model.checkpoint'
     ############################################################
