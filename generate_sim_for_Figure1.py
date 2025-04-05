@@ -74,7 +74,7 @@ def main():
         set_random_seed(data_idx)
         np.random.seed(data_idx)
 
-        if data_idx % 100 == 0:
+        if data_idx % 1000 == 0:
             print('data_idx: ', data_idx)
 
         # generate oscillations
@@ -111,8 +111,8 @@ def main():
         data_p[data_idx, :] = p
         data_ap[data_idx, :] = ap
 
-        if data_idx == 0:
-            print(rand_exp_change)
+        # if data_idx == 0:
+        #     print(rand_exp_change)
 
         exp_series[data_idx, :] = np.ones((1, num_pts)) * rand_exp_init
         exp_series[data_idx, int(rand_exp_change_time[0]*fs):int(t_len*fs)] += np.ones(int(t_len*fs) - int(rand_exp_change_time[0]*fs)) * exp_sign*rand_exp_change
