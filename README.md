@@ -46,7 +46,8 @@ python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data <number
 ```train
 python extract_aperiodic_guides.py --load_fname <fname_to_load> --fs <sampling_rate> --t_len <time_length> --save_path <path_to_save>
 ```
-
+- Here, the data to be loaded must be in NumPy format and have a shape of (N, T), where N is the number of data samples and T is the number of data points.
+  
 ### 7. Train the model
 ```train
 python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <number_of_epochs> --mode 0
