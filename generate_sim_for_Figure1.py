@@ -74,8 +74,8 @@ def main():
         set_random_seed(data_idx)
         np.random.seed(data_idx)
 
-        if data_idx % 1000 == 0:
-            print('data_idx: ', data_idx)
+        # if data_idx % 1000 == 0:
+        #     print('data_idx: ', data_idx)
 
         # generate oscillations
         p = np.zeros((1, num_pts))
