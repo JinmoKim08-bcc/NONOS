@@ -124,56 +124,6 @@ def main():
     data = data.squeeze(1)
     data = data.numpy()
 
-    ## Move data
-    t = time.time()
-    fg = SpectralGroupModel(peak_width_limits=[0.2, 2], min_peak_height=0.1, max_n_peaks=4) #, aperiodic_mode='knee')
-    input_data = data # (num_data, num_time)
-    R = torch.abs(torch.fft.rfft(torch.tensor(input_data), dim=-1))
-    R = R + 1e-6 # (num_data, num_freqs)
-    freqs = torch.fft.rfftfreq(input_data.shape[-1], 1/fs)
-
-    freq_range = [1, fs//2]
-    freq_lb_idx = np.where(freqs.numpy() >= freq_range[0])[0][0]
-    freq_ub_idx = np.where(freqs.numpy() <= freq_range[1])[0][-1]
-
-    fg.fit(freqs[freq_lb_idx:freq_ub_idx+1].numpy(), R[:, freq_lb_idx:freq_ub_idx+1].numpy())
-
-    # Aperiodic parameters
-    params = fg.get_params('aperiodic_params')
-
-    # Periodic parameters
-    peaks = fg.get_params('peak_params')
-    cfs = fg.get_params('peak_params', 'CF') # extra clumn specifies which model fit it came from
-    cfs_info = cfs[:, 1].astype(int)
-    max_n_peaks = 4
-    params_cfs = np.zeros((params.shape[0], max_n_peaks))
-    for data_idx in range(params.shape[0]):
-        
-        aligned_idx = np.where(cfs_info == data_idx)[0]
-        # print(aligned_idx)
-
-        aligned_cfs = cfs[aligned_idx, 0]
-        params_cfs[data_idx, :aligned_cfs.shape[0]] = aligned_cfs
-        # params_cfs[data_idx, :peaks.shape[0]] = peaks[:, 0]
-    
-    # Aperiodic guidelines
-    selected_freqs = freqs[freq_lb_idx:freq_ub_idx+1].numpy()
-    ap_guides = np.zeros((num_data, selected_freqs.shape[0]), dtype=np.float32)
-
-    for data_idx in range(num_data):
-        ap_params = params[data_idx, :]
-        aperiodic_model = ap_fit(freqs[freq_lb_idx:freq_ub_idx+1], ap_params[0], ap_params[1]).numpy()
-        full_model = fg.get_model(ind=data_idx).modeled_spectrum_
-        periodic_model = full_model - aperiodic_model
-        ap_guides[data_idx, :] = np.log10(R[data_idx, freq_lb_idx:freq_ub_idx+1].numpy()) - periodic_model
-        
-    fname_ap_params = 'aperiodic_params'+str(fs)+'Hz'+str(t_len)+'sec_' + str(freq_range[0]) + '_' + str(freq_range[1]) + 'Hz' + '.npy'
-    fname_p_params = 'peak_params'+str(fs)+'Hz'+str(t_len)+'sec_' + str(freq_range[0]) + '_' + str(freq_range[1]) +'Hz' + '.npy'
-    fname_ap_guides = 'ap_guides'+str(fs)+'Hz'+str(t_len)+'sec_' + str(freq_range[0]) + '_' + str(freq_range[1]) +'Hz' + '.npy'
-
-    np.save(save_path + fname_ap_params, params)
-    np.save(save_path + fname_p_params, params_cfs)
-    np.save(save_path + fname_ap_guides, ap_guides)
     np.save(save_path + "data.npy", data)
     np.save(save_path + "data_ap.npy", data_ap)
     np.save(save_path + "data_p.npy", data_p)
