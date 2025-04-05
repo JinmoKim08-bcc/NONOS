@@ -13,11 +13,9 @@ pip install -r requirements.txt
 ```
 - We recommend using Linux when working with multiple GPUs.
 
-## Release note
-The convenience update coming soon!
+## Quickstart
 
-## Generate simulation data
-
+### Create an environment
 To generate the simulation data in the paper, run this command:
 
 ```train
