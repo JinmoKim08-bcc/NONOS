@@ -52,4 +52,15 @@ python extract_aperiodic_guides.py --load_fname <fname_to_load> --fs <sampling_r
 ```train
 python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <number_of_epochs> --mode 0
 ```
+- The trained model will be saved in the same directory as the loaded data.
 
+### 8. Test the model
+To examine the results, run this command first:
+```train
+python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <number_of_epochs> --mode 0
+```
+
+Finally, use the Jupyter notebook to see figures!:
+```train
+Plot_results.ipynb
+```
