@@ -11,45 +11,43 @@ To install requirements:
 ```setup
 pip install -r requirements.txt
 ```
+- We recommend using Linux when working with multiple GPUs.
 
->📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
+## Procedure
 
-## Release note
-The convenience update coming soon!
-
-## Generate simulation data
-
-To generate the simulation data in the paper, run this command:
+### 1. Create an environment
+To create a conda environment, run this command:
 
 ```train
-python generate_sim.py --exp_num 4_1_1
+conda create -n nonos python=3.9
 ```
-- The spectral parameterization process with SpecParam takes considerable time.
 
-## Training
-
-To train the model(s) in the paper, run this command:
-
+### 2. Activate the environment
 ```train
-python NONOS_train.py --save_path <path_to_save> --fname_osc <path_to_osc> --fname_osc <path_to_nosc> --gpus 4 --mode <simple or SpecParam> --specpara-result <path_to_result> --epochs 200
+conda activate nonos
 ```
 
-- We provide two versions of models: NONOS-simple and NONOS-SpecParam.
-- For NONOS-SpecParam, a pre-calculated spectral parameterization result is required for smooth computation.
-
-
-## Evaluation
-
-To evaluate my model on a specific data, run:
-
-```eval
-python NONOS_eval.py --model_file mymodel.checkpoint --fname_osc <path_to_osc> --fname_osc <path_to_nosc> --gpus 4
+### 3. Move to the cloned directory
+```train
+cd /your_path/NONOS/
 ```
 
-## Results
+### 4. Install required libraries
+```train
+pip install -r requirements.txt
+```
 
-Our model achieves the following performance on :
+### 5. Generate a simulation data
+```train
+python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data 10000
+```
 
-![image](https://github.com/jkwrbcc/NONOS/assets/170528215/32012f6c-864a-476e-b2ae-d4bbc0d3a995)
+### 6. Extract spectral parameters of oscillation & non-oscillation
+```train
+python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data 10000
+```
 
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
+### 7. Train the model
+```train
+python NONOS.py --load_path <path_to_load> --gpus 1 --epochs 100 --mode 0
+```
