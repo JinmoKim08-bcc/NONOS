@@ -49,6 +49,6 @@ python extract_aperiodic_guides.py --load_fname <fname_to_load> --fs <sampling_r
 
 ### 7. Train the model
 ```train
-python NONOS.py --load_path <path_to_load> --gpus 1 --epochs 100 --mode 0
+python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <number_of_epochs> --mode 0
 ```
 
