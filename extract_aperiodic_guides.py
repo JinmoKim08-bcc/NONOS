@@ -29,8 +29,8 @@ def ap_fit(freqs, offset, exponent):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--load_path', default='/home/', type=str,
-                        help='path to load the data')
+    parser.add_argument('--load_fname', default='/home/', type=str,
+                        help='file name to load')
     parser.add_argument('--fs', default=200, type=int,
                         help='sampling rate [Hz]')
     parser.add_argument('--t_len', default=10, type=int,
@@ -49,7 +49,7 @@ def main():
     save_path = args.save_path + '/'
 
     # Load data
-    data = np.load(args.load_path + 'data.npy') # (num_data, num_pts)
+    data = np.load(args.load_fname) # (num_data, num_pts)
     num_data = data.shape[0]
 
     ## Move data
