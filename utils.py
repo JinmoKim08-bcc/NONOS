@@ -79,3 +79,44 @@ def calculate_R_squared(y_true, y_pred):
     SS_res = np.sum((y_true - y_pred) ** 2)
     return 1 - SS_res / SS_tot
 
+def load_results(fpath, fname, gpus, data_len):
+    inputs_R = torch.tensor([])
+    inputs_fits = torch.tensor([])
+    input_x = torch.tensor([])
+    labels = torch.tensor([])
+    output_x_ap = torch.tensor([])
+    ap_guides = torch.tensor([])
+
+    for gpu_idx in range(gpus):
+        temp_x = np.load(fpath + fname + '_input_x' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_x = unpad(torch.tensor(temp_x).float(), data_len)
+        input_x = torch.cat((input_x, temp_x), 0)
+
+        temp_labels = np.load(fpath + fname + '_labels' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_labels = torch.tensor(temp_labels)
+        labels = torch.cat((labels, temp_labels), 0)
+
+        temp_x_ap = np.load(fpath + fname + '_output_x_ap' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_x_ap = torch.tensor(temp_x_ap)
+        output_x_ap = torch.cat((output_x_ap, temp_x_ap), 0)
+
+        temp_inputs_R = np.load(fpath + fname + '_input_R' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_inputs_R = torch.tensor(temp_inputs_R)
+        inputs_R = torch.cat((inputs_R, temp_inputs_R), 0)
+
+        temp_inputs_fits = np.load(fpath + fname + '_input_fits' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_inputs_fits = torch.tensor(temp_inputs_fits)
+        inputs_fits = torch.cat((inputs_fits, temp_inputs_fits), 0)
+
+        temp_ap_guides = np.load(fpath + fname + '_ap_guides' + '_gpu' + str(gpu_idx) + '.npy')
+        temp_ap_guides = torch.tensor(temp_ap_guides)
+        ap_guides = torch.cat((ap_guides, temp_ap_guides), 0)
+
+    input_x = input_x.squeeze()
+    output_x_ap = output_x_ap.squeeze()
+    inputs_R = inputs_R.squeeze()
+    inputs_fits = inputs_fits.squeeze()
+    ap_guides = ap_guides.squeeze()
+
+    return inputs_R, inputs_fits, input_x, labels, output_x_ap, ap_guides
+    

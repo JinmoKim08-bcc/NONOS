@@ -99,7 +99,7 @@ def train(gpu, args):
     num_layers = 4 # >=4
     target_length = 2048
     beta = 0.05
-    rho = 25
+    rho = 100
     print('beta: {}, rho: {}'.format(beta, rho))
 
     ## Hyperparameters for training
