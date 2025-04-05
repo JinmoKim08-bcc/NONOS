@@ -13,6 +13,7 @@ from neurodsp.utils import create_times
 from neurodsp.plts import plot_time_series
 
 import os
+import argparse
 import numpy as np
 import specparam
 from specparam import SpectralGroupModel
@@ -27,18 +28,24 @@ def ap_fit(freqs, offset, exponent):
     return fits
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--save_path', default='/home/', type=str,
+                        help='path to save the data')
+    parser.add_argument('--num_data', default=10000, type=int,
+                        help='number of data to generate')
+    args = parser.parse_args()
+
     ###### Hyperparameters ########
     # Set some general settings, to be used across all simulations
     fs = 200 # sampling rate [Hz]
     t_len = 10 # time legnth [sec]
     num_pts = t_len * fs
     
-    num_data = 10000 # number of data to generate
+    num_data = args.num_data # number of data to generate
 
     # data name
-    fpath = '/data/'
     exp_num = 'Figure1'
-    save_path = fpath + '/'
+    save_path = args.save_path + '/'
 
     fname_nosc = 'nosc_'+str(fs)+'Hz'+str(t_len)+'sec_' + 'Experiment' + exp_num + '.npy'
     fname_osc = 'osc_'+str(fs)+'Hz'+str(t_len)+'sec_' + 'Experiment' + exp_num + '.npy'
