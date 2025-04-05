@@ -39,15 +39,16 @@ pip install -r requirements.txt
 
 ### 5. Generate a simulation data
 ```train
-python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data 10000
+python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data <number_of_data>
 ```
 
 ### 6. Extract spectral parameters of oscillation & non-oscillation
 ```train
-python generate_sim_for_Figure1.py --save_path <path_to_save> --num_data 10000
+python extract_aperiodic_guides.py --load_fname <fname_to_load> --fs <sampling_rate> --t_len <time_length> --save_path <path_to_save>
 ```
 
 ### 7. Train the model
 ```train
 python NONOS.py --load_path <path_to_load> --gpus 1 --epochs 100 --mode 0
 ```
+
