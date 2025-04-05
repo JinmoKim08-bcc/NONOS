@@ -3,6 +3,7 @@ from datetime import datetime
 import argparse
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.multiprocessing as mp
 import torch.optim as optim
 import torch.distributed as dist
