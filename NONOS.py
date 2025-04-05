@@ -21,8 +21,8 @@ def main():
                         help='number of gpus to use')
     parser.add_argument('--epochs', default=50, type=int,
                         help='the number of epochs')
-    parser.add_argument('--mode', default='simple', type=str,
-                        help='mode of the curve fitting method')
+    parser.add_argument('--mode', default=0, type=int,
+                        help='0: train, 1: test')
 
     args = parser.parse_args()
     #########################################################
