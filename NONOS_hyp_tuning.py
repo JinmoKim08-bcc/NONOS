@@ -101,7 +101,7 @@ def load_data(data_dir='/home/', exp_num='1_1'):
 
     return X_train, Y_train, X_valid, Y_valid, X_test, Y_test
 
-def train_nonos(gpu, args, data_dir='/home/):
+def train_nonos(gpu, args, data_dir='/home/'):
     ############################################################
     # Data loading
     fs = 500
