@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 - We recommend using Linux when working with multiple GPUs.
 
-## Procedure
+## Procedures
 
 ### 1. Create an environment
 To create a conda environment, run this command:
