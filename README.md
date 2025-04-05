@@ -57,7 +57,7 @@ python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <num
 ### 8. Test the model
 To examine the results, run this command first:
 ```train
-python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --epochs <number_of_epochs> --mode 0
+python NONOS.py --load_path <path_to_load> --gpus <number_of_gpus> --mode 1
 ```
 
 Finally, use the Jupyter notebook to see figures!:
