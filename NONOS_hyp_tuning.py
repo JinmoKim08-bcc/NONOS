@@ -23,7 +23,7 @@ import ray.cloudpickle as pickle
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--file_path', default='/home/', type=str)
-    parser.add_argument('--exp_num', default='1_1', type=str)
+    parser.add_argument('--exp_num', default='Figure1', type=str)
     parser.add_argument('-g', '--gpus', default=1, type=int,
                         help='number of gpus to use')
     parser.add_argument('-n', '--num_samples', default=10, type=int)
