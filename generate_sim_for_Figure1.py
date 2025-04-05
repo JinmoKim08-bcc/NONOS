@@ -15,7 +15,7 @@ from neurodsp.plts import plot_time_series
 import os
 import argparse
 import numpy as np
-import specparam
+from tools import specparam
 from specparam import SpectralGroupModel
 from specparam.utils import trim_spectrum
 from neurodsp.spectral import compute_spectrum
