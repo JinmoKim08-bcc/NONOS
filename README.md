@@ -11,8 +11,7 @@ To install requirements:
 ```setup
 pip install -r requirements.txt
 ```
-
->📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
+- We recommend using Linux when working with multiple GPUs.
 
 ## Release note
 The convenience update coming soon!
