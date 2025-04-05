@@ -15,13 +15,19 @@ pip install -r requirements.txt
 
 ## Quickstart
 
-### Create an environment
+### 1. Create an environment
 To generate the simulation data in the paper, run this command:
 
 ```train
-python generate_sim.py --exp_num 4_1_1
+conda create -n nonos python=3.9
 ```
+
+### 1. Create an environment
+
+
 - The spectral parameterization process with SpecParam takes considerable time.
+
+
 
 ## Training
 
