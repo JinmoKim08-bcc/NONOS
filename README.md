@@ -2,7 +2,7 @@
 
 This repository is the official implementation of [Neural oscillation and non-oscillation separator for highly time-resolved decomposition of beta band activity (NONOS)]. 
 
-![Image](https://github.com/user-attachments/assets/1bf9fdc9-344d-447e-a66c-4d226c90be70)
+<img width="2420" height="1832" alt="Figure3@300x" src="https://github.com/user-attachments/assets/11d6bef4-ee92-47eb-94a8-f9c25a3498b6" />
 
 ## Requirements
 
