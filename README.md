@@ -1,4 +1,4 @@
-# Neural Oscillation and Non-Oscillation Separator in both time and frequency domains
+# Neural oscillation and non-oscillation separator for highly time-resolved decomposition of beta band activity
 
 This repository is the official implementation of [Neural oscillation and non-oscillation separator for highly time-resolved decomposition of beta band activity (NONOS)]. 
 
